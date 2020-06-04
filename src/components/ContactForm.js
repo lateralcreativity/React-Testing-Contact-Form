@@ -22,7 +22,7 @@ const ContactForm = () => {
             ref={register({ required: true })}
           />
           {errors.firstName && (
-            <p>Looks like there was an error: {errors.firstName.type}</p>
+            <p data-test id="firstNameError">Looks like there was an error: {errors.firstName.type}</p>
           )}
         </div>
 
@@ -35,7 +35,7 @@ const ContactForm = () => {
             ref={register({ required: true })}
           />
           {errors.lastName && (
-            <p>Looks like there was an error: {errors.lastName.type}</p>
+            <p data-test id="lastNameError">Looks like there was an error: {errors.lastName.type}</p>
           )}
         </div>
 
@@ -45,7 +45,7 @@ const ContactForm = () => {
           </label>
           <input id="email" name="email" ref={register({ required: true })} />
           {errors.email && (
-            <p>Looks like there was an error: {errors.email.type}</p>
+            <p data-test id="emailError">Looks like there was an error: {errors.email.type}</p>
           )}
         </div>
         <div>

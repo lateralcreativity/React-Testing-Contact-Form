@@ -26,4 +26,14 @@ test("Contact form can be filled out and submitted", () => {
     fireEvent.change(emailInput, { target: { value: 'test@test.com' } });
     fireEvent.change(messageInput, { target: { value: 'hi' } });
     fireEvent.click(submitButton);
-})
+});
+
+test("Errors show up if value is empty", () => {
+    fireEvent.click(submitButton);
+
+    setTimeout(() => {
+        expect(screen.getByTestId(/firstNameError/i)).toBeInTheDocument();
+        expect(screen.getByTestId(/lastNameError/i)).toBeInTheDocument();
+        expect(screen.getByTestId(/emailError/i)).toBeInTheDocument();
+    }, 1);
+});
